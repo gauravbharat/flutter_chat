@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1029529867814",
+    "project_id": "garyd-flash-chat",
+    "storage_bucket": "garyd-flash-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029529867814:android:fb79817c3331e9e1d178e7",
+        "android_client_info": {
+          "package_name": "co.veerappa.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029529867814-82mtuihol8q2ituhkr752b5pn60t3o5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD89e1tY9h8ZoClU9xb9xnxn9KUIPO1e34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029529867814-82mtuihol8q2ituhkr752b5pn60t3o5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
