@@ -25,8 +25,9 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       body: ModalProgressHUD(
         inAsyncCall: _showSpinner,
-        color: Colors.blueAccent,
-        progressIndicator: CircularProgressIndicator(),
+        progressIndicator: CircularProgressIndicator(
+          backgroundColor: Colors.blueAccent,
+        ),
         child: Center(
           // child: SingleChildScrollView(
           child: Padding(
