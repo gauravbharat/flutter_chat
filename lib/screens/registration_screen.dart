@@ -27,79 +27,79 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         inAsyncCall: _showSpinner,
         color: Colors.blueAccent,
         child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Hero(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Flexible(
+                  child: Hero(
                     tag: 'logo',
                     child: Container(
                       height: 200.0,
                       child: Image.asset('images/logo.png'),
                     ),
                   ),
-                  SizedBox(
-                    height: 48.0,
+                ),
+                SizedBox(
+                  height: 48.0,
+                ),
+                TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  textAlign: TextAlign.center,
+                  onChanged: (value) {
+                    _email = value;
+                  },
+                  style: TextStyle(
+                    color: Colors.black87,
                   ),
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    textAlign: TextAlign.center,
-                    onChanged: (value) {
-                      _email = value;
-                    },
-                    style: TextStyle(
-                      color: Colors.black87,
-                    ),
-                    decoration: kTextInputDecoration.copyWith(
-                        hintText: 'Enter your email'),
+                  decoration: kTextInputDecoration.copyWith(
+                      hintText: 'Enter your email'),
+                ),
+                SizedBox(
+                  height: 8.0,
+                ),
+                TextField(
+                  // keyboardType: TextInputType.visiblePassword,
+                  obscureText: true,
+                  textAlign: TextAlign.center,
+                  onChanged: (value) {
+                    _password = value;
+                  },
+                  style: TextStyle(
+                    color: Colors.black87,
                   ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  TextField(
-                    // keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
-                    textAlign: TextAlign.center,
-                    onChanged: (value) {
-                      _password = value;
-                    },
-                    style: TextStyle(
-                      color: Colors.black87,
-                    ),
-                    decoration: kTextInputDecoration.copyWith(
-                        hintText: 'Enter your password'),
-                  ),
-                  SizedBox(
-                    height: 24.0,
-                  ),
-                  RoundedButton(
-                    buttonColor: Colors.blueAccent,
-                    buttonText: 'Register',
-                    onPressed: () async {
-                      // print('email $_email password $_password');
-                      try {
-                        setState(() => _showSpinner = true);
+                  decoration: kTextInputDecoration.copyWith(
+                      hintText: 'Enter your password'),
+                ),
+                SizedBox(
+                  height: 24.0,
+                ),
+                RoundedButton(
+                  buttonColor: Colors.blueAccent,
+                  buttonText: 'Register',
+                  onPressed: () async {
+                    // print('email $_email password $_password');
+                    try {
+                      setState(() => _showSpinner = true);
 
-                        final newUser =
-                            await _auth.createUserWithEmailAndPassword(
-                                email: _email, password: _password);
+                      final newUser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: _email, password: _password);
 
-                        // print('newUser $newUser');
+                      // print('newUser $newUser');
 
-                        if (newUser != null) {
-                          Navigator.pushNamed(context, ChatScreen.id);
-                        }
-                        setState(() => _showSpinner = false);
-                      } catch (e) {
-                        print(e);
+                      if (newUser != null) {
+                        Navigator.pushNamed(context, ChatScreen.id);
                       }
-                    },
-                  ),
-                ],
-              ),
+                      setState(() => _showSpinner = false);
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                ),
+              ],
             ),
           ),
         ),
